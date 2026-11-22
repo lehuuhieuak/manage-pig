@@ -1,0 +1,11 @@
+node_modules/
+.next/
+.env
+.env.*
+!.env.example
+!.env.docker.example
+*.tsbuildinfo
+playwright-report/
+test-results/
+coverage/
+*.log

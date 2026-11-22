@@ -1,0 +1,19 @@
+name: manage-pig-test
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: manage_pig_test
+      POSTGRES_PASSWORD: manage_pig_test
+      POSTGRES_DB: manage_pig_test
+    ports:
+      - "0.0.0.0:55439:5432"
+    volumes:
+      - test-postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U manage_pig_test -d manage_pig_test"]
+      interval: 2s
+      timeout: 3s
+      retries: 20
+volumes:
+  test-postgres:
